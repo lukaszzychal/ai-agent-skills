@@ -1,0 +1,43 @@
+name: Validate Skills & Metadata
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate SKILL.md Frontmatter
+        run: |
+          echo "Validating skills frontmatter..."
+          failed=0
+          for file in skills/*/SKILL.md; do
+            echo "Checking $file..."
+            if ! grep -q "^---" "$file"; then
+              echo "Error: $file does not start with YAML frontmatter delimiter (---)"
+              failed=1
+            fi
+            if ! grep -q "^name:" "$file"; then
+              echo "Error: $file missing 'name' field"
+              failed=1
+            fi
+            if ! grep -q "^description:" "$file"; then
+              echo "Error: $file missing 'description' field"
+              failed=1
+            fi
+            if ! grep -q "Łukasz/Lukasz Zychal" "$file"; then
+              echo "Error: $file missing author tag"
+              failed=1
+            fi
+          done
+          if [ $failed -ne 0 ]; then
+            echo "Validation failed!"
+            exit 1
+          fi
+          echo "All skills validated successfully!"
