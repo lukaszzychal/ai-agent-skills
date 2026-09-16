@@ -93,10 +93,10 @@ Dla KAŻDEJ perspektywy uwzględnij analizę 3 widoków ekranu:
 
 Oceń każdą perspektywę w skali 1-10 i podaj konkretne uwagi:
 
-1. 🧑‍💼 REKRUTER IT (PHP/Backend)
-   – Czy profil i specjalizacja są czytelne w 30 sekund na telefonie i desktopie?
-   – Czy widać seniorski poziom i konkretne efekty biznesowe?
-   – Co by Cię zatrzymało, a co by odrzuciło na mobile i na dużym ekranie?
+1. 🧑‍💼 REKRUTER IT / TECH HIRING MANAGER (lub Klient B2B)
+   – Czy profil, poziom seniorski i specjalizacja technologiczna są czytelne w 30 sekund na telefonie i desktopie?
+   – Czy widać konkretne efekty biznesowe, architekturę i skalę projektów, a nie tylko suchą listę technologii?
+   – Co by Cię zatrzymało, a co by odrzuciło przed zaproszeniem na rozmowę techniczną?
 
 2. 🎨 UI/UX DESIGNER (Desktop + Tablet + Mobile)
    – Spójność wizualna, hierarchia treści, typografia, kontrast.
