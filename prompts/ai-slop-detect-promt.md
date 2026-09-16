@@ -65,6 +65,7 @@ audyt/audyt-[nazwa-projektu]-[typ-audytu]-[RRRR-MM-DD]-[GGMM].md
 > - Podmień `[URL]` na adres strony (lub publiczny link tunelu localhost).
 > - Jeśli audytujesz wersję lokalną lub zrzuty, załącz odpowiednie pliki / kontekst.
 > - Wymuś na modelu sprawdzenie 3 widoków: **Desktop (1440px+), Tablet (768px–1024px) oraz Mobile (375px–414px)**.
+> - **Zasada Actionable Backlog:** Model musi omówić w tekście **wszystkie wykryte problemy**, a na końcu raportu zestawić je w **zbiorczy backlog posortowany malejąco wg priorytetów (P1: Blokery/Krytyczne, P2: Istotne UX/SEO, P3: Szlif/Nice-to-have)** z unikalnymi identyfikatorami `[FIX-01]`, `[FIX-02]`, co umożliwia ich błyskawiczne, selektywne wdrożenie.
 
 ---
 
@@ -111,9 +112,18 @@ Oceń każdą perspektywę w skali 1-10 i podaj konkretne uwagi:
    – Czytelność dla botów i crawlerów AI (Google AI Overviews, Perplexity).
 
 Wymóg formatowania wyniku:
-Przygotuj raport w formacie Markdown z nagłówkiem i podsumowaniem TOP 3 priorytetów do poprawy oraz ogólną oceną 1-10.
-Raport przygotuj do zapisu w pliku:
-`audyt/audyt-[nazwa-projektu]-multiperspektywowy-[RRRR-MM-DD]-[GGMM].md`
+1. Szczegółowo omów WSZYSTKIE wykryte problemy w ramach każdej z 5 perspektyw (nie pomijaj drobnych błędów).
+2. Przygotuj podsumowanie z ogólną oceną (1-10) oraz:
+   ### 🎯 ZBIORCZY BACKLOG POPRAWEK (WSZYSTKIE WYKRYTE PROBLEMY):
+   Przedstaw WSZYSTKIE wykryte problemy posortowane malejąco według priorytetu z unikalnymi ID:
+   - 🔴 [PRIORYTET P1 - KRYTYCZNE / BLOKERY] (np. błędy mobilne, poziomy scroll, broken links, tap targets):
+     * [FIX-01] [Perspektywa / Widok] Konkretny problem i rekomendowane rozwiązanie
+   - 🟡 [PRIORYTET P2 - ISTOTNE / UX & SEO] (np. hierarchia H1-H3, brak zamykania menu mobilnego, puste frazy):
+     * [FIX-02] ...
+   - 🟢 [PRIORYTET P3 - SZLIF / NICE-TO-HAVE] (np. mikro-animacje, kosmetyka spacingu):
+     * [FIX-03] ...
+3. Raport przygotuj do zapisu w pliku:
+   `audyt/audyt-[nazwa-projektu]-multiperspektywowy-[RRRR-MM-DD]-[GGMM].md`
 ```
 
 ---
@@ -137,9 +147,10 @@ Przeanalizuj treść i wygląd na komputerze, tablecie i telefonie:
    – Czy na smartfonie czcionki, paddery i marginesy są zbalansowane, czy wyglądają na "sklejkę na szybko"?
    – Czy elementy interaktywne (karty, widgety, animacje) mają duszę i pasują do tematyki strony?
 
-Wynik końcowy:
-- Procent "AI-wości" (0% = w pełni autentyczna i unikalna, 100% = czysty AI slop)
-- Lista konkretnych fraz lub elementów wymagających natychmiastowej poprawy
+Wynik końcowy i formatowanie:
+- Procent "AI-wości" (0% = w pełni autentyczna i unikalna, 100% = czysty AI slop) oraz ogólny werdykt.
+- Szczegółowe omówienie wszystkich wykrytych cech AI-slop w treści i designie (cytaty pustych frazesów, elementy wizualne).
+- 🎯 ZBIORCZY BACKLOG POPRAWEK: Wszystkie wykryte problemy ułożone malejąco wg priorytetu (P1: rażące frazesy i zmyślone metryki, P2: szablonowe komponenty i plamy blur, P3: szlif inżynierskiego tonu) z identyfikatorami [FIX-01], [FIX-02]...
 - Raport sformatowany do zapisu w: `audyt/audyt-[nazwa-projektu]-ai-slop-[RRRR-MM-DD]-[GGMM].md`
 ```
 
@@ -172,8 +183,10 @@ Sprawdź działanie strony na 3 urządzeniach (Desktop, Tablet 768px, Mobile 375
    – Błędy JS w konsoli przeglądarki?
    – 404 na zasobach (obrazki, ikony, manifesty)?
 
-Raport: Co działa ✅, co nie działa ❌, co wymaga uwagi ⚠️
-Zapisz wynik jako: `audyt/audyt-[nazwa-projektu]-funkcjonalnosc-mobile-[RRRR-MM-DD]-[GGMM].md`
+Wynik końcowy i formatowanie:
+- Szczegółowy rejestr: Co działa ✅, co nie działa ❌, co wymaga uwagi ⚠️ (szczegółowe omówienie wszystkich wykrytych problemów).
+- 🎯 ZBIORCZY BACKLOG POPRAWEK: Wszystkie wykryte usterki ułożone malejąco wg priorytetu (P1: błędy blokujące działanie, overflow viewportu, 404; P2: obsługa stanów formularza, tap targets < 44px; P3: drobne usprawnienia a11y) z identyfikatorami [FIX-01], [FIX-02]...
+- Zapisz wynik jako: `audyt/audyt-[nazwa-projektu]-funkcjonalnosc-mobile-[RRRR-MM-DD]-[GGMM].md`
 ```
 
 ---
@@ -207,8 +220,10 @@ E) UNIKALNOŚĆ vs SZABLONOWOŚĆ
    – 1 (gotowy szablon z generatora) → 10 (rzemieślniczy, przemyślany design).
    – Co konkretnie nadaje charakter, a co wygląda generycznie?
 
-Wynik końcowy: Ocena łączna + TOP 5 rekomendacji projektowych.
-Zapisz w: `audyt/audyt-[nazwa-projektu]-wizualny-rwd-[RRRR-MM-DD]-[GGMM].md`
+Wynik końcowy i formatowanie:
+- Ocena łączna (1-10) oraz szczegółowa analiza każdego z 5 kryteriów A-E.
+- 🎯 ZBIORCZY BACKLOG POPRAWEK: Wszystkie wykryte problemy wizualne i RWD posortowane wg priorytetu (P1: rozjazdy RWD na 375px/768px, P2: kontrast i typografia WCAG AA, P3: detale mikro-animacji i unikalny charakter) z identyfikatorami [FIX-01], [FIX-02]...
+- Zapisz w: `audyt/audyt-[nazwa-projektu]-wizualny-rwd-[RRRR-MM-DD]-[GGMM].md`
 ```
 
 ---
@@ -245,12 +260,82 @@ Oceń interfejs w 5 kategoriach (każda 1-10):
    – Jak prezentowane są błędy i komunikaty powodzenia (Toasty / Alert bary)?
    – Czy przyciski mają czytelne stany hover/active?
 
-5. POTENCJAŁ DO POPRAWY (UX Quick Wins):
+5. POTENCJAŁ DO POPRAWY (UX Quick Wins & Polish):
    – Co sprawia wrażenie "amatorskiego" lub "niedokończonego"?
-   – Jakie 3 drobne zmiany natychmiast podniosą wrażenie jakości (premium feel)?
+   – Wymień wszystkie zidentyfikowane niedociągnięcia UI/UX.
 
-Raport sformatuj w Markdown gotowy do zapisu w:
-`audyt/audyt-[nazwa-aplikacji]-screenshot-ui-[RRRR-MM-DD]-[GGMM].md`
+Wynik końcowy i formatowanie:
+- Szczegółowe omówienie kategorii 1-5.
+- 🎯 ZBIORCZY BACKLOG POPRAWEK: Wszystkie wykryte problemy ułożone malejąco wg priorytetu (P1: ergonomia i błędy widoku w małym oknie, P2: spójność Design Systemu i kontrast, P3: szlif mikro-interakcji i quick wins) z identyfikatorami [FIX-01], [FIX-02]...
+- Raport sformatuj w Markdown gotowy do zapisu w:
+  `audyt/audyt-[nazwa-aplikacji]-screenshot-ui-[RRRR-MM-DD]-[GGMM].md`
+```
+
+---
+
+## 🛠️ Szablony promptów do wdrażania poprawek po audycie
+
+Po wygenerowaniu raportu audytu masz w nim **wszystkie wykryte problemy ponumerowane jako `[FIX-01]`, `[FIX-02]`... i posortowane wg priorytetów (P1, P2, P3)**.
+Dzięki temu nie musisz wdrażać wszystkiego naraz ani przepisywać kodu ręcznie. Wybierz odpowiedni szablon poniżej:
+
+### ⚡ WARIANT A: Błyskawiczny (w tym samym oknie czatu z audytem)
+*Zastosowanie: Gdy rozmawiasz z ChatGPT, Claude lub Antigravity i chcesz natychmiast przejść do poprawek.*
+
+```markdown
+Przeanalizowałem Twój raport audytu. Chcę wdrożyć WYBRANE poprawki według poniższego planu:
+
+1. 🚀 WDRÓŻ BEZ ZMIAN (dokładnie tak jak zaproponowałeś):
+   - Cały pakiet [P1] (wszystkie krytyczne blokery)
+   - [FIX-04]
+
+2. ✏️ WDRÓŻ Z MOJĄ MODYFIKACJĄ:
+   - [FIX-02]: Zamiast usuwać ten element, zmień tylko jego kolor na stonowany szary i zmniejsz padding na mobile (375px).
+   - [FIX-05]: Nie instaluj żadnej nowej biblioteki npm – rozwiąż to za pomocą czystego CSS/JS.
+
+3. 🛑 ODRZUĆ (nie dotykaj tego kodu):
+   - [FIX-06] (to celowy zabieg projektowy / zamierzona decyzja biznesowa)
+
+Zadanie dla Ciebie:
+Wygeneruj precyzyjny plan wdrożenia / kod diff dla wybranych punktów. Przestrzegaj zasad Anti-AI-Slop (brak ślepych linków, brak zbędnych bibliotek, przetestowane na 375px).
+```
+
+---
+
+### 🚀 WARIANT B: Samodzielny prompt wdrożeniowy (do nowego czatu / Cursor / Antigravity)
+*Zastosowanie: Gdy otwierasz nowy wątek lub pracujesz w edytorze kodu z plikiem audytu (np. `audyt/audyt-lukaszzychal.dev-multiperspektywowy-....md`).*
+
+```markdown
+Działasz jako Senior Frontend & Software Architect.
+Twoim zadaniem jest wdrożenie ściśle wyselekcjonowanych poprawek z raportu audytu.
+
+### 📄 KONTEKST AUDYTU:
+Raport z audytu znajduje się w pliku: [audyt/audyt-lukaszzychal.dev-multiperspektywowy-[DATA].md]
+
+### 🎯 WYBRANE ZADANIA DO REALIZACJI:
+Wdróż wyłącznie poniższe punkty z raportu:
+- [FIX-01]: [Krótki opis, np. Naprawa menu mobilnego - brakujące zamykanie po kliknięciu kotwicy]
+- [FIX-03]: [Krótki opis, np. Poprawa rozmiaru tap targets do min. 44x44px na ekranie 375px]
+- [FIX-07]: [Krótki opis, np. Usunięcie korpo-frazesów z sekcji Hero i dodanie konkretnych technologii]
+
+### 📐 WYTYCZNE TECHNICZNE:
+1. Nie wprowadzaj żadnych innych zmian poza wymienionymi punktami.
+2. Zadbaj o brak regresji RWD (375px, 768px, 1440px).
+3. Żadnego AI-slopu: brak ślepych linków, zachowana hierarchia H1->H3, czysty semantyczny kod.
+4. Przedstaw zmiany w formie konkretnych diffów w istniejących plikach.
+```
+
+---
+
+### 🪄 WARIANT C: Generator promptu dla zewnętrznego narzędzia (v0 / Bolt.new / Lovable)
+*Zastosowanie: Gdy audyt zrobiłeś w Claude/ChatGPT, ale kod strony generuje dla Ciebie zewnętrzne narzędzie (v0.dev, Bolt, Lovable).*
+
+```markdown
+Na podstawie powyższego audytu chcę wdrożyć wyłącznie punkty: [FIX-01], [FIX-02], [FIX-05].
+
+Napisz dla mnie precyzyjny, zwarty prompt gotowy do wklejenia w [v0.dev / Bolt.new / Lovable], który:
+1. Skupi się WYŁĄCZNIE na tych 3 wybranych poprawkach (nie wspominaj o punktach odrzuconych).
+2. Będzie zawierał ścisłe wytyczne inżynierskie (Mobile-First 375px, tap targets 44px, semantyka HTML, brak zbędnych bibliotek).
+3. Zostanie sformatowany w zwięzły sposób wymuszający natychmiastowe naniesienie poprawek w kodzie.
 ```
 
 ---
@@ -269,5 +354,5 @@ Raport sformatuj w Markdown gotowy do zapisu w:
 
 ## 🛡️ Prompty zapobiegające AI-Slop podczas GENEROWANIA stron
 Szczegółowy podręcznik oraz gotowe moduły "Anti-AI-Slop Master Directive" (wersja skrócona do promptów oraz pełna wersja dla `.cursorrules` / Claude Projects) znajdziesz w pliku:
-👉 [docs/anti-ai-slop-generator-prompt.md](file:///Users/lukaszzychal/PhpstormProjects/lukasz.zychal.dev-wp/docs/anti-ai-slop-generator-prompt.md)
+👉 [prompts/anti-ai-slop-generator-prompt.md](anti-ai-slop-generator-prompt.md)
 
