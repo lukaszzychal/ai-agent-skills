@@ -135,7 +135,7 @@ Wymóg formatowania wyniku:
 ### Prompt 2 – Detektor "AI slop" / autentyczności (Desktop & Mobile)
 
 ```
-Wejdź na stronę: [URL]
+Wejdź na stronę: [URL] (użyj najwyższego dostępnego narzędzia: Playwright / Chrome DevTools / Firecrawl / fetch do analizy treści i layoutu)
 
 Oceń, czy ta strona wygląda jak "AI slop" (generyczna, bez charakteru, wygenerowana przez AI bez autorskiej edycji i dopracowania).
 
@@ -163,7 +163,7 @@ Wynik końcowy i formatowanie:
 ### Prompt 3 – Audyt działania, funkcjonalności i a11y na telefonie i tablecie
 
 ```
-Wejdź na stronę: [URL]
+Wejdź na stronę: [URL] (priorytet: Playwright / Chrome DevTools do emulacji dotyku, viewportów 375px/768px i odczytu konsoli JS; fallback: fetch/kod)
 
 Sprawdź działanie strony na 3 urządzeniach (Desktop, Tablet 768px, Mobile 375px) BEZ wysyłania wrażliwych danych:
 
@@ -198,7 +198,7 @@ Wynik końcowy i formatowanie:
 ### Prompt 4 – Ocena estetyki, responsywności i typografii (Desktop + Tablet + Mobile)
 
 ```
-Przeanalizuj wizualnie stronę: [URL]
+Przeanalizuj wizualnie stronę: [URL] (priorytet: Playwright / Chrome DevTools do zbadania widoków 375px, 768px i 1440px; fallback: zrzuty ekranu / fetch)
 
 Kategorie oceny (każda w skali 1-10):
 
