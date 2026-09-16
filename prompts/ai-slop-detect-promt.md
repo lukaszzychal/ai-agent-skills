@@ -66,13 +66,17 @@ audyt/audyt-[nazwa-projektu]-[typ-audytu]-[RRRR-MM-DD]-[GGMM].md
 > - Jeśli audytujesz wersję lokalną lub zrzuty, załącz odpowiednie pliki / kontekst.
 > - Wymuś na modelu sprawdzenie 3 widoków: **Desktop (1440px+), Tablet (768px–1024px) oraz Mobile (375px–414px)**.
 > - **Zasada Actionable Backlog:** Model musi omówić w tekście **wszystkie wykryte problemy**, a na końcu raportu zestawić je w **zbiorczy backlog posortowany malejąco wg priorytetów (P1: Blokery/Krytyczne, P2: Istotne UX/SEO, P3: Szlif/Nice-to-have)** z unikalnymi identyfikatorami `[FIX-01]`, `[FIX-02]`, co umożliwia ich błyskawiczne, selektywne wdrożenie.
+> - **🛠️ Hierarchia Narzędzi Inspekcji (Graceful Fallback):**
+>   1. **Poziom 1 (Złoty Standard – Pełna emulacja):** Jeśli masz dostęp do Playwright, Puppeteer, Chrome DevTools MCP lub Browser Subagenta – uruchom przeglądarkę, zbadaj 3 viewporty (375x667, 768x1024, 1440x900), sprawdź błędy w konsoli JS i przetestuj interakcje (np. menu mobilne, tap targets min. 44x44px).
+>   2. **Poziom 2 (Scraper treści – Firecrawl / Jina Reader / Web Fetch):** Jeśli brak silnika przeglądarki, ale masz dostęp do sieci/narzędzi scrapingowych – pobierz stronę (np. przez Firecrawl, r.jina.ai/[URL] lub curl) i zbadaj tekst, semantykę HTML, hierarchię nagłówków H1–H3 oraz metatagi SEO.
+>   3. **Poziom 3 (Statyczny fallback – Kod / Zrzuty):** Jeśli strona lub localhost są niedostępne sieciowo – poproś o kod źródłowy komponentów lub zrzuty ekranu (Prompt 5) i przeprowadź statyczny audyt kodu oraz architektury layoutu.
 
 ---
 
 ### Prompt 1 – Audyt wieloperspektywowy (rekruter, dev, designer + Mobile/Tablet)
 
 ```
-Wejdź na stronę: [URL]
+Wejdź na stronę: [URL] (użyj najwyższego dostępnego narzędzia: Playwright / Chrome DevTools / Firecrawl / fetch wg hierarchii narzędzi)
 
 Przeprowadź kompleksowy audyt z 5 różnych perspektyw. 
 Dla KAŻDEJ perspektywy uwzględnij analizę 3 widoków ekranu:
