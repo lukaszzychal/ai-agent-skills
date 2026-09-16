@@ -78,6 +78,13 @@ audyt/audyt-[nazwa-projektu]-[typ-audytu]-[RRRR-MM-DD]-[GGMM].md
 ```
 Wejdź na stronę: [URL] (użyj najwyższego dostępnego narzędzia: Playwright / Chrome DevTools / Firecrawl / fetch wg hierarchii narzędzi)
 
+[OPCJONALNIE – KONTEKST I INTENCJA AUTORA]:
+(Jeśli pominiesz ten blok, samodzielnie wywnioskuj cel na podstawie pierwszego wrażenia)
+– Cel strony / Główna akcja (CTA): [np. Portfolio inżynierskie B2B / Prezentacja projektu open-source / SaaS / Edukacja]
+– Grupa docelowa: [np. Rekruterzy techniczni, CTO, klienci biznesowi]
+– Zamierzony styl / Archetyp marki: [np. Industrial Dark Terminal / Nowoczesny minimalizm / Corporate Clean]
+– Świadome decyzje (czego NIE krytykować): [np. Celowo brak cennika; techniczny font mono i brak stockowych zdjęć są zamierzone]
+
 Przeprowadź kompleksowy audyt z 5 różnych perspektyw. 
 Dla KAŻDEJ perspektywy uwzględnij analizę 3 widoków ekranu:
 - DESKTOP (1440px+)
@@ -137,6 +144,11 @@ Wymóg formatowania wyniku:
 ```
 Wejdź na stronę: [URL] (użyj najwyższego dostępnego narzędzia: Playwright / Chrome DevTools / Firecrawl / fetch do analizy treści i layoutu)
 
+[OPCJONALNIE – KONTEKST I TONE OF VOICE]:
+– Kim jest autor / Czym jest projekt: [np. Senior Backend Developer / Narzędzie CLI dla programistów]
+– Oczekiwany styl komunikacji: [np. Rygor inżynierski, zero korporacyjnego żargonu, konkretne metryki]
+– Świadome zabiegi estetyczne: [np. Surowa estetyka bez kolorowych ilustracji i bez fejków]
+
 Oceń, czy ta strona wygląda jak "AI slop" (generyczna, bez charakteru, wygenerowana przez AI bez autorskiej edycji i dopracowania).
 
 Przeanalizuj treść i wygląd na komputerze, tablecie i telefonie:
@@ -164,6 +176,10 @@ Wynik końcowy i formatowanie:
 
 ```
 Wejdź na stronę: [URL] (priorytet: Playwright / Chrome DevTools do emulacji dotyku, viewportów 375px/768px i odczytu konsoli JS; fallback: fetch/kod)
+
+[OPCJONALNIE – SPECYFIKA I ZNANE ZACHOWANIA]:
+– Kluczowe interakcje do przetestowania: [np. Menu mobilne hamburger, przełącznik języków PL/EN, formularz kontaktowy]
+– Świadome zachowania: [np. Formularz jest w trybie offline/fallback i kopiuje e-mail do schowka]
 
 Sprawdź działanie strony na 3 urządzeniach (Desktop, Tablet 768px, Mobile 375px) BEZ wysyłania wrażliwych danych:
 
@@ -199,6 +215,11 @@ Wynik końcowy i formatowanie:
 
 ```
 Przeanalizuj wizualnie stronę: [URL] (priorytet: Playwright / Chrome DevTools do zbadania widoków 375px, 768px i 1440px; fallback: zrzuty ekranu / fetch)
+
+[OPCJONALNIE – ZAMIERZONY STYL I VIBE]:
+– Docelowy archetyp wizualny: [np. Industrial Dark / Terminal Geek / Brutalist / Clean Modern]
+– Odbiorca docelowy: [np. Inżynierowie, designerzy, klienci B2B]
+– Świadome decyzje wizualne: [np. Ograniczona paleta barw, wysoki kontrast, brak miękkich cieni i zaokrągleń]
 
 Kategorie oceny (każda w skali 1-10):
 
@@ -240,7 +261,10 @@ Wynik końcowy i formatowanie:
 ```
 Przeanalizuj załączone zrzuty ekranu interfejsu (UI/UX) aplikacji / rozszerzenia przeglądarki.
 
-Kontekst aplikacji: [Krótki opis: np. Rozszerzenie Chrome do zarządzania promptami / monitorowania API]
+[OPCJONALNIE – KONTEKST I CEL APLIKACJI]:
+– Typ i cel aplikacji: [np. Rozszerzenie Chrome do zarządzania promptami / panel admina Tauri]
+– Grupa użytkowników i środowisko pracy: [np. Deweloperzy w codziennej pracy, używane na małym ekranie bocznym]
+– Zamierzony styl: [np. Dark Mode spójny z Chrome SidePanel, kompaktowy interfejs]
 
 Oceń interfejs w 5 kategoriach (każda 1-10):
 
