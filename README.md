@@ -31,13 +31,17 @@ This repository provides **pluggable skills** designed to be **Technology & Lang
 | [`db-migration-guard`](skills/db-migration-guard/SKILL.md) | **Technology-Agnostic** | Safe database migration assistant. Enforces **Zero-Downtime** deployments via the **Expand-and-Contract** pattern, prevents table locking (`CONCURRENTLY`), and guarantees reversible rollback procedures. |
 | [`git-commits`](skills/git-commits/SKILL.md) | **Workflow & Git** | Enforces English commit messages using **Conventional Commits** (`feat:`, `fix:`, `refactor:`, etc.) and automated **SemVer** release tagging (`vX.X.X`). |
 | [`tauri-troubleshooter`](skills/tauri-troubleshooter/SKILL.md) | **Desktop Apps (Tauri/Rust)** | Specialized guide for desktop development with Tauri (v1 & v2), Rust IPC (`invoke`/`emit`), system permissions (macOS `Info.plist`, microphone, storage), Next.js static exports, and cross-platform bundling. |
+| [`anti-slop-ui`](skills/anti-slop-ui/SKILL.md) | **Frontend / Web Design** | Strict UI/UX auditor & generator. Eliminates AI slop, corporate buzzwords, generic blur blobs, dead anchors, and enforces semantic HTML, a11y (WCAG AA), and flawless mobile-first RWD (375px/768px/1440px). |
 
 ---
 
 ## 🛠️ Additional Toolkits
 
 - **[`rules/`](rules/)**: Engineering standards and behavioral constraints for coding assistants ([Common Engineering Rules](rules/common-engineering-rules.md)).
-- **[`prompts/`](prompts/)**: Ready-to-use prompts for Principal Architects and Senior Code Reviews ([Architecture Review Prompt](prompts/architecture-review.md)).
+- **[`prompts/`](prompts/)**: Ready-to-use battle-tested prompts:
+  - [Architecture Review Prompt](prompts/architecture-review.md) – Deep-dive macro/micro architectural review.
+  - [Anti-AI-Slop Generator Directive](prompts/anti-ai-slop-generator-prompt.md) – Modular prompt to eliminate AI slop, fake corporate jargon, and generic templates when generating websites.
+  - [Web & Mobile UI/UX Audit Prompts](prompts/ai-slop-detect-promt.md) – Multi-perspective audit prompts for desktop, tablet, mobile, screenshots, and localhost.
 
 ---
 
