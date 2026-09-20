@@ -58,9 +58,10 @@ Masz bezwzględny obowiązek przestrzegać poniższego kodeksu inżynierskiego:
   - Ikony czysto dekoracyjne muszą posiadać `aria-hidden="true"`.
   - Sekcje powinny mieć unikalne nagłówki powiązane przez `aria-labelledby`.
   - Przyciski i linki na urządzeniach dotykowych muszą mieć obszar kliknięcia min. 44x44px (`min-h-[44px] min-w-[44px]`).
-- SEO & Rich Snippets:
-  - Zawsze generuj semantyczne metadane Open Graph (og:title, og:description, og:image 1200x630, twitter:card).
-  - Dołącz JSON-LD Schema.org dostosowane do typu strony (`Person`, `Organization`, `WebSite` lub `SoftwareApplication`).
+- SEO & GEO / Rich Snippets:
+  - Zawsze generuj semantyczne metadane Open Graph (og:title, og:description, og:image 1200x630, twitter:card) oraz bezwzględny tag canonical (`<link rel="canonical">`).
+  - Dołącz poprawny JSON-LD Schema.org dostosowany do typu strony (`Person`, `Organization`, `WebSite` lub `SoftwareApplication`).
+  - Zadbaj o przejrzystą architekturę encji i bezpośrednie podsumowania faktów (Direct Answer format), ułatwiające cytowanie w wyszukiwarkach tradycyjnych (Google) i generatywnych (Perplexity, ChatGPT Search).
 
 ### 3. RESPONSYWNOŚĆ (Mobile-First & Tablet RWD)
 - 375px (Mobile Standard):

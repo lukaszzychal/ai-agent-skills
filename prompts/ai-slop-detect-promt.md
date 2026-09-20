@@ -6,10 +6,16 @@
 |---|---|---|
 | **PageSpeed Insights** | Core Web Vitals, SEO techniczne, dostępność | https://pagespeed.web.dev/ |
 | **Google Rich Results Test** | Czy Google rozumie strukturę treści (schema.org) | https://search.google.com/test/rich-results |
+| **Schema Markup Validator** | Oficjalny walidator składni JSON-LD / Microdata (Schema.org) | https://validator.schema.org/ |
 | **Google Search Console** | Indeksowanie, błędy crawlowania, hreflang | https://search.google.com/search-console |
+| **Bing Webmaster Tools** | Indeksowanie w Bing, Copilot AI, protokół IndexNow | https://www.bing.com/webmasters |
 | **Ahrefs Free SEO Checker** | Szybki audit SEO | https://ahrefs.com/seo-checker |
 | **Screaming Frog (free)** | Crawl strony: broken links, meta, redirects | https://www.screamingfrog.co.uk/seo-spider/ |
+| **llms.txt Validator** | Weryfikacja i standard pliku /llms.txt dla modeli AI i wyszukiwarek | https://llmstxt.org/ |
 | **WAVE Web Accessibility** | Dostępność (a11y), kontrast, ARIA | https://wave.webaim.org/ |
+| **axe DevTools** | Audyt WCAG 2.0–2.2 poziomy A/AA/AAA (rozszerzenie Chrome/Firefox, branżowy standard a11y) | https://www.deque.com/axe/devtools/ |
+| **Accessibility Checker** | Szybki online audyt WCAG AA (powered by Deque axe-core) | https://www.accessibilitychecker.org/ |
+| **ANDI (SSA.gov)** | Screen reader / nawigacja klawiaturą / Section 508 / WCAG tester (US Gov) | https://www.ssa.gov/accessibility/andi/help/install.html |
 | **Lighthouse (Chrome DevTools)** | Performance, SEO, a11y, PWA (F12 → Lighthouse) | wbudowany w Chrome |
 | **Open Graph Debugger** | Podgląd OG tags (jak wygląda na FB/LinkedIn) | https://www.opengraph.xyz/ |
 | **Twitter Card Validator** | Sprawdzenie kart Twitter/X | https://cards-dev.twitter.com/validator |
@@ -106,8 +112,18 @@ Oceń każdą perspektywę w skali 1-10 i podaj konkretne uwagi:
    – Czy design jest unikalny czy wygląda jak AI-default (v0/shadcn template)?
 
 3. 👨‍💻 FRONTEND DEVELOPER
-   – Struktura semantyczna HTML (H1-H3, article, section, nav).
-   – Dostępność (a11y): ARIA labels, kontrast tekstu, focus states.
+   – Struktura semantyczna HTML (H1-H3, article, section, nav, main, header, footer).
+   – Dostępność (a11y) – weryfikuj wg WCAG 2.1 AA (minimalny standard wymagany prawnie w UE/PL):
+     • Kontrast tekstu normalnego ≥ 4.5:1, tekstu dużego (≥18pt) ≥ 3:1 [WCAG 1.4.3 AA]
+     • Kontrast elementów UI (przyciski, inputy, ikony aktywne) ≥ 3:1 [WCAG 1.4.11 AA – nowe w 2.1]
+     • Tekst alternatywny: znaczące obrazy `alt="opis"`, dekoracyjne `alt=""` [WCAG 1.1.1 A]
+     • ARIA labels, role i `aria-describedby` na formularzach i ikonach [WCAG 1.3.1 A]
+     • Focus-visible: wyraźny outline przy nawigacji klawiaturą Tab [WCAG 2.4.7 AA / 2.4.11 AA w 2.2]
+     • Brak pułapek klawiatury (focus trap dozwolony tylko w modalach z Escape) [WCAG 2.1.2 A]
+     • Obsługa `prefers-reduced-motion` dla animacji i przejść [WCAG 2.3.3 / dobra praktyka]
+     • Skalowanie tekstu do 200% bez utraty treści i poziomego scrolla [WCAG 1.4.4 AA]
+     • Reflow przy 320px szerokości (brak poziomego scrolla) [WCAG 1.4.10 AA – nowe w 2.1]
+   – Etykiety formularzy: każdy input musi mieć powiązany `<label>` lub `aria-label` [WCAG 3.3.2 AA].
    – Zachowanie layoutu przy zwężaniu okna, brak przesunięć layoutu (CLS).
    – Performance mobilny: optymalizacja zasobów, LCP.
 
@@ -202,6 +218,16 @@ Sprawdź działanie strony na 3 urządzeniach (Desktop, Tablet 768px, Mobile 375
 4. KONSOLA I BŁĘDY:
    – Błędy JS w konsoli przeglądarki?
    – 404 na zasobach (obrazki, ikony, manifesty)?
+
+5. ♿ DOSTĘPNOŚĆ (WCAG 2.1 AA – minimalny standard wymagany prawnie w UE/PL):
+   – Kontrast: tekst ≥ 4.5:1 (normalny) / ≥ 3:1 (duży ≥18pt lub bold) [WCAG 1.4.3 AA]; elementy UI ≥ 3:1 [WCAG 1.4.11 AA, dodane w 2.1].
+   – Tekst alternatywny: znaczące obrazy `alt="opis"`, ikony mają `aria-label`, dekoracyjne `alt=""`. [WCAG 1.1.1 A]
+   – Nawigacja klawiaturą: tab order logiczny, focus-visible widoczny, brak pułapek klawiatury. [WCAG 2.1.1 A, 2.4.7 AA]
+   – Formularze: `<label>` powiązany z każdym inputem, komunikaty błędów dostępne tekstowo. [WCAG 1.3.1 A, 3.3.1 A, 3.3.2 AA]
+   – Semantyczne landmarki: `<nav>`, `<main>`, `<header>`, `<footer>`, `<aside>` użyte poprawnie. [WCAG 1.3.1 A]
+   – Animacje: czy `prefers-reduced-motion` jest obsługiwane? [WCAG 2.3.3 / dobra praktyka]
+   – Zoom 200%: treść czytelna bez poziomego scrolla (reflow przy 320px). [WCAG 1.4.4 AA, 1.4.10 AA]
+   – Sprawdź przez axe DevTools (rozszerzenie Chrome): odnotuj liczbę błędów krytycznych i ostrzeżeń WCAG AA.
 
 Wynik końcowy i formatowanie:
 - Szczegółowy rejestr: Co działa ✅, co nie działa ❌, co wymaga uwagi ⚠️ (szczegółowe omówienie wszystkich wykrytych problemów).
@@ -301,9 +327,218 @@ Wynik końcowy i formatowanie:
 
 ---
 
+### Prompt 6 – Dedykowany audyt dostępności WCAG (Accessibility / a11y)
+
+> **Zastosowanie:** Użyj tego promptu do pełnego audytu dostępności dla osób z niepełnosprawnościami (wzrokowymi, motorycznymi, słuchowymi, poznawczymi). Weryfikacja wg standardów WCAG:
+> - **WCAG 2.0** (2008) – fundament: poziomy **A** (absolutne minimum), **AA** (standard), **AAA** (zaawansowany, opcjonalny)
+> - **WCAG 2.1** (2018) – 17 nowych kryteriów: mobile, low vision, kognitywne (poziomy A i AA)
+> - **WCAG 2.2** (2023) – 9 nowych kryteriów AA: focus appearance, drag-and-drop, auth, redundant entry
+> - **WCAG 3.0** (Working Draft, ~2026+) – nowy model APCA kontrastu; NIE jest jeszcze standardem ISO. Status: https://www.w3.org/TR/wcag-3.0/
+> - **Poziom wymagany prawnie:** WCAG 2.1 AA (EAA 2025 w UE, Ustawa o Dostępności Cyfrowej w Polsce, ADA/Section 508 w USA)
+
+```
+Wejdź na stronę: [URL] (użyj najwyższego dostępnego narzędzia: Playwright + axe-core / Chrome DevTools / WAVE / Firecrawl)
+
+[OPCJONALNIE – KONTEKST]:
+– Typ strony: [np. Portfolio / E-commerce / Blog / SaaS / Strona instytucji publicznej]
+– Wymagania prawne: [np. Ustawa o dostępności cyfrowej (PL), EAA 2025 (UE), Section 508 (US)]
+– Znane wyjątki: [np. Wideo bez napisów pochodzi z zewnętrznego źródła / CAPTCHA jest niezbędna]
+
+Przeprowadź audyt dostępności wg WCAG 2.1 AA (z uwagami dla 2.2 tam gdzie zaznaczono):
+
+ZASADA 1 – POSTRZEGALNOŚĆ (Perceivable) [WCAG 1.x]:
+
+1.1 TEKST ALTERNATYWNY [1.1.1 – Poziom A]:
+   – Czy znaczące obrazy mają opisowy alt="..." (nie: "image" / "foto" / pusta nazwa pliku)?
+   – Czy obrazy dekoracyjne mają alt="" i nie są czytane przez screen readery?
+   – Czy ikony SVG i ikony-fonty mają aria-label lub aria-hidden="true" gdy są ozdobne?
+   – Czy przyciski-ikony (burger menu, X, strzałki) mają czytelną etykietę dla AT?
+
+1.2 MULTIMEDIA [1.2.x – Poziom A/AA]:
+   – Czy wideo z dźwiękiem ma napisy (closed captions)? [1.2.2 A]
+   – Czy treść tylko-audio (podcast, nagranie) ma transkrypcję tekstową? [1.2.1 A]
+   – Czy wideo informacyjne ma audiodeskrypcję lub transkrypt z opisem wizualnym? [1.2.5 AA]
+
+1.3 ADAPTOWALNOŚĆ [1.3.x – Poziom A]:
+   – Czy informacje nie są przekazywane WYŁĄCZNIE przez kolor (błąd = tylko czerwona obwódka)? [1.4.1 A]
+   – Czy semantyczne landmarki HTML5 są użyte: <nav>, <main>, <header>, <footer>, <aside>? [1.3.1 A]
+   – Czy hierarchia nagłówków H1→H2→H3 jest logiczna i nie pomija poziomów? [1.3.1 A]
+   – Czy kolejność treści przy nawigacji klawiaturą odpowiada kolejności wizualnej? [1.3.2 A]
+   – Czy tabele danych mają <caption> i <th scope> zamiast layoutowych <div>? [1.3.1 A]
+
+1.4 ROZRÓŻNIALNOŚĆ – Kontrast i czytelność [1.4.x – Poziom AA]:
+   – Kontrast tekstu normalnego (<18pt / 14pt bold): min. 4.5:1 [1.4.3 AA]
+   – Kontrast tekstu dużego (≥18pt lub ≥14pt bold): min. 3:1 [1.4.3 AA]
+   – Kontrast elementów UI (przyciski, inputy, checkbox, ikony aktywne): min. 3:1 [1.4.11 AA – WCAG 2.1]
+   – Kontrast stanu focus (outline): min. 3:1 względem sąsiedniego koloru [2.4.11 AA – WCAG 2.2]
+   – Czy tekst można powiększyć do 200% bez utraty treści / nakładania elementów? [1.4.4 AA]
+   – Czy strona nie ma poziomego przewijania przy 320px (reflow)? [1.4.10 AA – WCAG 2.1]
+   – Czy odstępy tekstu można zwiększyć (line-height, letter-spacing) bez utraty treści? [1.4.12 AA – WCAG 2.1]
+   – Czy treść pojawiająca się na hover/focus można zamknąć (Esc), najechać i jest trwała? [1.4.13 AA – WCAG 2.1]
+
+ZASADA 2 – FUNKCJONALNOŚĆ (Operable) [WCAG 2.x]:
+
+2.1 NAWIGACJA KLAWIATURĄ [2.1.x – Poziom A]:
+   – Czy WSZYSTKIE interaktywne elementy (linki, przyciski, inputy, modalne) są dostępne przez Tab? [2.1.1 A]
+   – Czy nie ma pułapek klawiatury (focus trap dozwolony tylko w dialogach z Escape)? [2.1.2 A]
+   – Czy skróty klawiszowe (1 znak) nie kolidują z czytnikami ekranu NVDA/JAWS/VoiceOver? [2.1.4 A – WCAG 2.1]
+
+2.4 NAWIGACJA I FOCUS [2.4.x – Poziom AA]:
+   – Czy istnieje skip link „Przejdź do treści" widoczny przy focus jako pierwsza opcja Tab? [2.4.1 A]
+   – Czy <title> strony jest opisowy i unikalny dla każdej podstrony? [2.4.2 A]
+   – Czy focus-visible jest wyraźny (nie usunięto outline: none bez zamiennika)? [2.4.7 AA / 2.4.11 AA WCAG 2.2]
+   – Czy focus nie znika pod sticky headerem (scroll-margin-top lub focus offset)? [2.4.12 AA – WCAG 2.2]
+
+2.5 MODALNOŚCI WEJŚCIA [2.5.x – WCAG 2.1/2.2]:
+   – Czy gesty wielodotykowe (pinch, swipe) mają alternatywę jednopalcową? [2.5.1 A – WCAG 2.1]
+   – Czy akcje drag-and-drop mają alternatywę bez przeciągania? [2.5.7 AA – WCAG 2.2]
+
+ZASADA 3 – ZROZUMIAŁOŚĆ (Understandable) [WCAG 3.x]:
+
+3.1 JĘZYK [3.1.x – Poziom A]:
+   – Czy atrybut lang na <html> jest ustawiony poprawnie (np. lang="pl")? [3.1.1 A]
+   – Czy fragmenty w innym języku mają lang na elemencie (np. <span lang="en">)? [3.1.2 AA]
+
+3.3 FORMULARZE I BŁĘDY [3.3.x – Poziom A/AA]:
+   – Czy każdy input ma powiązany <label for> lub aria-label / aria-labelledby? [3.3.2 AA]
+   – Czy błędy walidacji opisane są tekstem (nie tylko kolorem/ikoną)? [3.3.1 A]
+   – Czy przy błędzie sugerowana jest korekta? [3.3.3 AA]
+   – Czy strona nie wymaga CAPTCHA jako jedynej opcji? [3.3.7 AA – WCAG 2.2]
+   – Czy dane formularza nie są kasowane po nieudanym kroku? [3.3.7 AA – WCAG 2.2]
+
+ZASADA 4 – SOLIDNOŚĆ (Robust) [WCAG 4.x]:
+
+4.1 KOMPATYBILNOŚĆ Z AT [4.1.x – Poziom A/AA]:
+   – Czy HTML jest poprawny: brak duplikatów id, brak niezamkniętych tagów, poprawne zagnieżdżenia? [4.1.1 A]
+   – Czy wszystkie interaktywne komponenty mają dostępną role, name i value dla AT? [4.1.2 A]
+   – Czy dynamiczne powiadomienia (toasty, alerty) używają aria-live="polite" lub role="alert"? [4.1.3 AA – WCAG 2.1]
+
+POZIOMY ZGODNOŚCI (A / AA / AAA) – podsumowanie:
+   – POZIOM A: absolutne minimum; niespełnienie = strona NIEDOSTĘPNA dla wielu użytkowników AT.
+   – POZIOM AA: standard wymagany prawnie (EAA 2025, Ustawa o Dostępności Cyfrowej, ADA). Cel tego audytu.
+   – POZIOM AAA: zaawansowany (kontrast 7:1, pełne transkrypcje, język migowy); wdrażaj tam gdzie możliwe.
+
+WZMIANKA O WCAG 3.0 (Working Draft – NIE jest jeszcze standardem):
+   – Wprowadza APCA (Accessible Perceptual Contrast Algorithm) – nowy model kontrastu zamiast 4.5:1.
+   – Nowy system oceny: scoring zamiast binarnego pass/fail.
+   – Nie wymagaj pełnej zgodności z WCAG 3.0 w audytach produkcyjnych.
+   – Aktualny status: https://www.w3.org/TR/wcag-3.0/
+
+Wynik końcowy i formatowanie:
+- Tabela zgodności:
+  | Kryterium WCAG | Wersja | Poziom | Status | Uwagi |
+  |---|---|---|---|---|
+  | 1.1.1 Tekst alternatywny | 2.0 | A | ✅/❌/⚠️/N/A | ... |
+  | 1.4.3 Kontrast tekstu | 2.0 | AA | ✅/❌/⚠️/N/A | ... |
+  | 1.4.11 Kontrast UI | 2.1 | AA | ✅/❌/⚠️/N/A | ... |
+  | 2.4.11 Focus Appearance | 2.2 | AA | ✅/❌/⚠️/N/A | ... |
+- Wynik z axe DevTools: [X] błędów krytycznych, [Y] poważnych, [Z] umiarkowanych, [W] informacyjnych.
+- Szczegółowe omówienie WSZYSTKICH wykrytych naruszeń z opisem problemu i sugestią naprawy.
+- 🎯 ZBIORCZY BACKLOG POPRAWEK DOSTĘPNOŚCI – posortowany wg priorytetu:
+  🔴 [P1 – KRYTYCZNE / Poziom A]: naruszenia blokujące dostęp dla AT
+    * [A11Y-01] [Kryterium WCAG] Opis problemu i rekomendacja naprawy
+  🟡 [P2 – ISTOTNE / Poziom AA]: naruszenia wymogów prawnych
+    * [A11Y-02] ...
+  🟢 [P3 – SZLIF / Poziom AAA + WCAG 3.0-ready]: rekomendacje zaawansowane
+    * [A11Y-03] ...
+- Zapisz raport w: `audyt/audyt-[nazwa-projektu]-accessibility-wcag-[RRRR-MM-DD]-[GGMM].md`
+```
+
+---
+
+### Prompt 7 – Dedykowany audyt SEO technicznego, On-Page i GEO (Generative Engine Optimization & AI Search)
+
+> **Zastosowanie:** Użyj tego promptu do całościowego audytu widoczności strony zarówno w tradycyjnych wyszukiwarkach (Google, Bing), jak i wyszukiwarkach generatywnych nowej ery (Perplexity, ChatGPT Search / SearchGPT, Google AI Overviews, Claude, Microsoft Copilot).
+> **Zgodność ze standardami:** Google Search Essentials, Schema.org (JSON-LD), llms.txt standard (llmstxt.org), Core Web Vitals (LCP, INP, CLS).
+
+```
+Wejdź na stronę: [URL] (użyj najwyższego dostępnego narzędzia: Playwright / Chrome DevTools / Firecrawl / fetch do analizy kodu HTML, nagłówków HTTP, metatagów i renderowania)
+
+[OPCJONALNIE – KONTEKST STRONY I POZYCJONOWANIA]:
+– Typ serwisu i cel: [np. Portfolio inżynierskie B2B / SaaS dla deweloperów / Blog techniczny / Strona firmowa]
+– Główne frazy kluczowe / encje: [np. "Senior Backend Engineer Go/Python", "Audyt architektury chmurowej AWS"]
+– Rynki i wersje językowe: [np. Polska (PL) oraz Globalny (EN)]
+– Preferencja indeksowania AI: [np. Pełne otwarcie na boty AI i cytowania w Perplexity / SearchGPT]
+
+Przeprowadź dogłębny audyt w 5 kluczowych filarach nowoczesnego SEO i GEO:
+
+1. ⚙️ TECHNICZNE SEO & CRAWLABILITY (Fundament indeksowania):
+   – Indeksowanie i dyrektywy: czy w `<head>` nie występuje omyłkowy tag `noindex`, `nofollow` lub dyrektywa blokująca w nagłówkach HTTP (X-Robots-Tag)?
+   – Kanonizacja (Canonical): czy tag `<link rel="canonical" href="...">` jest zdefiniowany, bezwzględny (HTTPS), samoodnoszący i spójny z docelową strukturą URL (brak mixed trailing-slash `/`)?
+   – Wielojęzyczność (hreflang): jeśli strona posiada wersje językowe (np. /pl i /en), czy tagi `<link rel="alternate" hreflang="..." href="...">` są wzajemne, kompletne i zawierają fallback `hreflang="x-default"`?
+   – Pliki indeksujące:
+     • Czy `robots.txt` jest dostępny pod `/robots.txt`, nie blokuje arkuszy CSS/JS i zawiera poprawny link do mapy witryny (`Sitemap: https://...`)?
+     • Czy `sitemap.xml` jest dostępna pod `/sitemap.xml`, zawiera poprawne adresy kanoniczne, właściwe znaczniki `<lastmod>` i nie zawiera stron z błędami 404/301?
+   – Architektura renderowania (SSR / SSG vs CSR):
+     • Czy kluczowa treść, nagłówki i linki znajdują się w surowym kodzie HTML (widocznym dla crawlerów bez silnika JS), czy wymagają hydratacji klienta?
+     • Czy serwis nie powoduje tzw. soft 404 (zwracanie kodu 200 OK dla nieistniejących podstron)?
+   – Przekierowania i protokoły: wymuszenie HTTPS, brak pętli przekierowań (redirect loops) i brak zbędnych łańcuchów 301/302.
+
+2. 📝 ON-PAGE SEO & ARCHITEKTURA TREŚCI:
+   – Meta Title: unikalny dla każdej podstrony, długość 50–60 znaków (lub ~580px), zawiera markę oraz kluczowe słowo/rolę na początku, brak keyword stuffingu.
+   – Meta Description: unikalny, zachęcający do kliknięcia (CTR), długość 120–155 znaków, adekwatny do intencji użytkownika.
+   – Hierarchia nagłówków (H1–H3):
+     • Dokładnie jeden nagłówek `<h1>` na podstronie, jasno definiujący tożsamość/wartość serwisu.
+     • Logiczna struktura `<h2>` dla sekcji głównych i `<h3>` dla podsekcji/kart projektów (brak skoków z H2 do H4).
+   – Linkowanie wewnętrzne i kotwice (Anchor Text):
+     • Czy linki wewnętrzne posiadają deskryptywne teksty kotwic (np. "Zobacz architekturę projektu X" zamiast generycznego "kliknij tutaj" lub "więcej")?
+     • Czy nie ma uszkodzonych odnośników wewnętrznych (broken anchors / 404)?
+   – Optymalizacja grafik pod SEO:
+     • Czy wszystkie znaczące obrazy posiadają wartościowe atrybuty `alt` w kontekście strony?
+     • Czy obrazy wykorzystują nowoczesne formaty (WebP/AVIF) i mają zadeklarowane `width`/`height` zapobiegające przesunięciom layoutu (CLS)?
+
+3. 🏷️ DANE STRUKTURALNE (Schema.org / JSON-LD & Rich Results):
+   – Obecność i poprawność JSON-LD: czy kod danych strukturalnych jest poprawnie osadzony w `<script type="application/ld+json">` i nie rzuca błędów walidacji?
+   – Dobór schematów do profilu witryny:
+     • Portfolio / strona personalna: schemat `Person` powiązany z `ProfilePage` lub `WebSite` (właściwości: `name`, `jobTitle`, `knowsAbout`, `sameAs` linkujące do GitHub, LinkedIn, Twitter/X).
+     • Firma / SaaS: schemat `Organization` lub `SoftwareApplication` (`name`, `description`, `applicationCategory`, `operatingSystem`).
+     • Artykuły / Blog: schemat `TechArticle` lub `BlogPosting` (`headline`, `author`, `datePublished`, `dateModified`).
+     • Nawigacja: schemat `BreadcrumbList` dla hierarchii podstron.
+   – Weryfikacja Rich Results: czy dane spełniają wytyczne Google Rich Results i umożliwiają wyświetlanie rozszerzonych wyników wyszukiwania?
+
+4. 🤖 GEO (Generative Engine Optimization) & WYSZUKIWARKI AI (Perplexity, SearchGPT, AI Overviews):
+   – Dostępność w `robots.txt` dla crawlerów generatywnych:
+     • Czy boty AI (np. `GPTBot`, `OAI-SearchBot`, `PerplexityBot`, `ClaudeBot`, `Google-Extended`, `Bingbot`) nie są zablokowane, jeśli celem jest widoczność w wyszukiwarkach AI?
+   – Standard `llms.txt` i `llms-full.txt` (llmstxt.org):
+     • Czy w roocie domeny istnieje plik `/llms.txt` przygotowany specjalnie pod modele językowe, zawierający zwięzłe podsumowanie profilu, specjalizacji, kluczowych projektów oraz odnośniki do pełnej dokumentacji?
+   – Optymalizacja cytowań (Information Gain & Fact Density):
+     • Czy w kluczowych sekcjach występują zwięzłe bloki podsumowujące (Direct Answer format – 2-3 zdania wprost odpowiadające na pytania: kim jest autor, co robi, jakie problemy rozwiązuje)?
+     • Czy dane techniczne i osiągnięcia podane są w tabelach lub punktach (dane ustrukturyzowane, które roboty AI łatwo parsują i cytują w odpowiedziach)?
+     • Unikanie wieloznaczności (Entity-based SEO): czy pojęcia technologiczne i powiązania branżowe są jednoznacznie zdefiniowane, co zapobiega halucynacjom modeli AI?
+
+5. ⚡ MOBILE-FIRST & CORE WEB VITALS (Wpływ wydajności na ranking):
+   – Parytet treści Mobile vs Desktop: czy robot Google Smartphone widzi dokładnie tę samą treść i linki co użytkownik na komputerze?
+   – LCP (Largest Contentful Paint) < 2.5s: czy główny element widoku (hero text / grafika) ładuje się natychmiast bez opóźnień fontów?
+   – CLS (Cumulative Layout Shift) < 0.1: czy elementy strony nie skaczą podczas doładowywania stylów, czcionek lub obrazków?
+   – INP (Interaction to Next Paint) < 200ms: czy interakcje (otwarcie menu, kliknięcie zakładek) reagują płynnie?
+
+Wynik końcowy i formatowanie:
+- Tabela zbiorcza zgodności SEO & GEO:
+  | Obszar audytu | Badany parametr | Status | Wpływ na pozycjonowanie / AI | Uwagi |
+  |---|---|---|---|---|
+  | ⚙️ Techniczne | Indeksowanie (noindex / canonical / robots / sitemap) | ✅/❌/⚠️ | Krytyczny | ... |
+  | ⚙️ Wielojęzyczność | Tagi hreflang + x-default | ✅/❌/⚠️/N/A | Wysoki | ... |
+  | 📝 On-Page | Meta title, description, H1-H3, alt | ✅/❌/⚠️ | Wysoki | ... |
+  | 🏷️ Dane strukturalne | Schema.org JSON-LD (Person/Org/Article) | ✅/❌/⚠️ | Średni/Wysoki | ... |
+  | 🤖 GEO / AI Search | robots.txt boty AI, /llms.txt, Fact Density | ✅/❌/⚠️ | Strategiczny (AI) | ... |
+  | ⚡ Core Web Vitals | LCP, CLS, INP, Mobile Parity | ✅/❌/⚠️ | Wysoki (Ranking) | ... |
+
+- Szczegółowe omówienie WSZYSTKICH wykrytych problemów, braków i podatności SEO.
+- 🎯 ZBIORCZY BACKLOG POPRAWEK SEO & GEO – posortowany wg priorytetu:
+  🔴 [PRIORYTET P1 – KRYTYCZNE / BLOKERY INDEKSACJI] (np. omyłkowy noindex, błędy canonical, zablokowane boty w robots.txt, brak lub wielokrotne H1, błędy 404 w sitemapie):
+    * [SEO-01] [Obszar] Konkretny problem i rekomendowany kod / rozwiązanie
+  🟡 [PRIORYTET P2 – ISTOTNE / ON-PAGE, SCHEMA & HREFLANG] (np. brak JSON-LD Schema.org, brakujące tagi hreflang, za długi/ucięty title, brak alt na obrazach):
+    * [SEO-02] ...
+  🟢 [PRIORYTET P3 – SZLIF / GEO, LLMS.TXT & AI CITATIONS] (np. wdrożenie pliku /llms.txt, optymalizacja Direct Answer dla SearchGPT/Perplexity, breadcrumbs JSON-LD):
+    * [SEO-03] ...
+- Zapisz gotowy raport w: `audyt/audyt-[nazwa-projektu]-seo-geo-[RRRR-MM-DD]-[GGMM].md`
+```
+
+---
+
 ## 🛠️ Szablony promptów do wdrażania poprawek po audycie
 
-Po wygenerowaniu raportu audytu masz w nim **wszystkie wykryte problemy ponumerowane jako `[FIX-01]`, `[FIX-02]`... i posortowane wg priorytetów (P1, P2, P3)**.
+Po wygenerowaniu raportu audytu masz w nim **wszystkie wykryte problemy ponumerowane jako `[FIX-01]`, `[A11Y-01]`, `[SEO-01]`... i posortowane wg priorytetów (P1, P2, P3)**.
 Dzięki temu nie musisz wdrażać wszystkiego naraz ani przepisywać kodu ręcznie. Wybierz odpowiedni szablon poniżej:
 
 ### ⚡ WARIANT A: Błyskawiczny (w tym samym oknie czatu z audytem)
@@ -373,10 +608,19 @@ Napisz dla mnie precyzyjny, zwarty prompt gotowy do wklejenia w [v0.dev / Bolt.n
 - [ ] Czy strona jest wdrożona na VPS/serwerze (lub czy uruchomiono tunel dla localhost)?
 - [ ] Czy przetestowano widok na telefonie (375px), tablecie (768px) i desktopie (1440px)?
 - [ ] Czy menu mobilne działa poprawnie i zamyka się po kliknięciu linku?
-- [ ] Czy Google Search Console widzi stronę?
-- [ ] Czy `sitemap.xml` jest dostępny (np. `twojadomena.pl/sitemap.xml`)?
-- [ ] Czy `robots.txt` jest prawidłowy (`twojadomena.pl/robots.txt`)?
-- [ ] Czy HTTPS jest aktywny (zielona kłódka)?
+- [ ] Czy Google Search Console widzi stronę i nie zgłasza błędów indeksowania?
+- [ ] Czy w kodzie produkcyjnym nie pozostał przypadkowy tag `<meta name="robots" content="noindex">`?
+- [ ] Czy tag `<link rel="canonical">` wskazuje na właściwy, ostateczny URL (HTTPS, bez pętli przekierowań)?
+- [ ] Czy wersje językowe (PL/EN) mają dwukierunkowe tagi `hreflang` oraz fallback `hreflang="x-default"`?
+- [ ] Czy dane strukturalne JSON-LD (Schema.org: Person / WebSite / Organization) przechodzą test w Google Rich Results Test?
+- [ ] Czy `sitemap.xml` jest dostępny (np. `twojadomena.pl/sitemap.xml`) i zawiera tylko adresy 200 OK?
+- [ ] Czy `robots.txt` jest prawidłowy (`twojadomena.pl/robots.txt`), linkuje do sitemapy i nie blokuje botów AI (GPTBot, PerplexityBot), jeśli zależy Ci na widoczności w SearchGPT/Perplexity?
+- [ ] Czy w katalogu głównym domeny wdrożono plik `/llms.txt` ze zwięzłą specyfikacją witryny dla modeli AI?
+- [ ] Czy HTTPS jest aktywny (zielona kłódka i brak mixed-content)?
+- [ ] Czy strona przeszła audyt dostępności (axe DevTools / WAVE) bez błędów krytycznych WCAG 2.1 AA?
+- [ ] Czy nawigacja klawiaturą (Tab, Shift+Tab, Enter, Escape) działa bez pułapek fokusa?
+- [ ] Czy wszystkie obrazy mają poprawne `alt` (znaczące: opisowy tekst ze słowami kluczowymi; dekoracyjne: `alt=""`)?
+- [ ] Czy atrybut `lang` jest ustawiony na `<html lang="pl">` (lub inny właściwy język)?
 
 ---
 
