@@ -82,6 +82,18 @@ Oceń istniejące testy dla badanego fragmentu (lub wskaż brakujące):
 Zadaj pytanie: **"Czy da się to napisać prościej bez utraty elastyczności?"**
 - Wytknij tworzenie niepotrzebnych klas bazowych, generyków "na zapas" czy wzorców tam, gdzie zwykła funkcja lub prosty if-else w zupełności wystarczą.
 
+### 6. Warstwa Tekstowa, Mikrocopy i Komentarze (Anti-AI-Slop & Human-First)
+Zbadaj czy komponent/funkcja nie wprowadza pustego szumu słownego:
+- **Mikrocopy UI/UX (komponenty widokowe, modale, formularze):**
+  - Czy etykiety, placeholdery i teksty CTA są bezpośrednie i zwięzłe?
+  - Czy komunikaty błędów informują precyzyjnie co poszło nie tak i jak to naprawić (*„Nieprawidłowy format kwoty”* zamiast teatralnych przeprosin AI: *„Niezmiernie przepraszamy za nieoczekiwany błąd...”*)?
+  - Brak sztucznych frazesów demaskujących generator: *„dla Twojej wygody”*, *„kompleksowe rozwiązanie”*, *„z myślą o Tobie”*.
+- **Komentarze w Kodzie i Docstringi:**
+  - Czy komentarze wyjaśniają nieoczywisty kontekst biznesowy i intencję (*„dlaczego”*), czy są tautologicznym wodolejstwem AI powtarzającym nazwę metody (`// Fetches the user data from repository` nad `fetchUserData()`)?
+  - Czy docstringi nie zawierają pseudonaukowego żargonu AI.
+- **Komunikaty Błędów i Wyjątki:**
+  - Czy rzucane wyjątki zawierają konkretne dane diagnostyczne (ID encji, otrzymaną wartość, dozwolony zakres), a nie ogólnikowe zdania.
+
 ---
 
 ## 📋 Wymagany Format Raportu Audytu Funkcjonalności
@@ -107,6 +119,7 @@ Wygenerowany raport musi mieć zwięzłą, bezpośrednią formę:
 | 🧪 Testy (Styl Detroit vs London, AAA) | OK / Uwagi | ... |
 | ⚡ Bezpieczeństwo & Zasoby | OK / Uwagi | ... |
 | ✂️ Balans (Brak Overengineeringu) | OK / Uwagi | ... |
+| ✍️ Mikrocopy & Komentarze (Anti-Slop) | OK / Uwagi | ... |
 
 ---
 

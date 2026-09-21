@@ -102,6 +102,7 @@ Oceń każdą perspektywę w skali 1-10 i podaj konkretne uwagi:
 1. 🧑‍💼 REKRUTER IT / TECH HIRING MANAGER (lub Klient B2B)
    – Czy profil, poziom seniorski i specjalizacja technologiczna są czytelne w 30 sekund na telefonie i desktopie?
    – Czy widać konkretne efekty biznesowe, architekturę i skalę projektów, a nie tylko suchą listę technologii?
+   – Czy copy nie zawiera AI slopu i pustego korpo-coachingu („dostarczam synergię 360”, zmyślone metryki), z poszanowaniem autorskiego charakteru i manifestu twórcy?
    – Co by Cię zatrzymało, a co by odrzuciło przed zaproszeniem na rozmowę techniczną?
 
 2. 🎨 UI/UX DESIGNER (Desktop + Tablet + Mobile)
@@ -155,35 +156,74 @@ Wymóg formatowania wyniku:
 
 ---
 
-### Prompt 2 – Detektor "AI slop" / autentyczności (Desktop & Mobile)
+### Prompt 2 – Zaawansowany Detektor "AI slop", Autentyczności i Human-First Copy (Desktop & Mobile)
+
+> **Zgodność ze standardami:** Standard *WikiProject AI Cleanup* (skill `/humanizer`), Zasady Human-First Copywriting, Wytyczne Google Search Essentials (wartość merytoryczna vs wypełniacze generatywne).
 
 ```
-Wejdź na stronę: [URL] (użyj najwyższego dostępnego narzędzia: Playwright / Chrome DevTools / Firecrawl / fetch do analizy treści i layoutu)
+Wejdź na stronę: [URL] (priorytet inspekcji: Playwright / Chrome DevTools / Firecrawl / fetch wg hierarchii narzędzi)
 
 [OPCJONALNIE – KONTEKST I TONE OF VOICE]:
-– Kim jest autor / Czym jest projekt: [np. Senior Backend Developer / Narzędzie CLI dla programistów]
-– Oczekiwany styl komunikacji: [np. Rygor inżynierski, zero korporacyjnego żargonu, konkretne metryki]
-– Świadome zabiegi estetyczne: [np. Surowa estetyka bez kolorowych ilustracji i bez fejków]
+– Kim jest autor / Czym jest projekt: [np. Senior Backend Developer / Narzędzie CLI / SaaS B2B / Portal narzędziowy]
+– Oczekiwany styl komunikacji: [np. Rygor inżynierski, zwięzłość, konkretne metryki, zero korporacyjnego żargonu]
+– Świadome decyzje (czego NIE krytykować): [np. Autorskie motto „Ja nie tworzę aplikacji, ja rozwiązuję problemy” jest zamierzone i ma pozostać; minimalistyczny terminal look jest świadomym wyborem]
 
-Oceń, czy ta strona wygląda jak "AI slop" (generyczna, bez charakteru, wygenerowana przez AI bez autorskiej edycji i dopracowania).
+Przeprowadź rygorystyczny audyt anty-slopowy, weryfikując czy strona wygląda i brzmi jak generyczny wytwór sztucznej inteligencji pozbawiony autorskiej edycji (tzw. "AI slop").
 
-Przeanalizuj treść i wygląd na komputerze, tablecie i telefonie:
-1. WARSTWA TEKSTOWA I TONE OF VOICE:
-   – Czy teksty brzmią autentycznie, po inżyniersku, z charakterem?
-   – Czy występują puste frazesy z "korpo-szczurowni" (np. "dostarczam innowacyjne synergie 360")?
-   – Czy treści są spójne wewnętrznie i poparte faktami z kariery?
-   – Czy za stroną stoi wyrazisty, konkretny człowiek?
+Zbadaj stronę w 3 wymiarach (Mobile 375px, Tablet 768px, Desktop 1440px):
 
-2. WARSTWA WIZUALNA I RESPONSYWNOŚĆ (Desktop vs Mobile/Tablet):
-   – Czy design wygląda jak domyślny template z v0.dev / podstawowy Tailwind bez dopracowania?
-   – Czy na smartfonie czcionki, paddery i marginesy są zbalansowane, czy wyglądają na "sklejkę na szybko"?
-   – Czy elementy interaktywne (karty, widgety, animacje) mają duszę i pasują do tematyki strony?
+===================================================================
+1. WARSTWA TEKSTOWA I TONE OF VOICE (Standard WikiProject AI Cleanup & /humanizer):
+===================================================================
+A) ❌ NEGATIVE PARALLELISMS & CLICHÉ CONSTRASTS (§9 humanizer):
+   – Czy występują szablonowe konstrukcje typu: „To nie tylko X, to Y”, „Nie chodzi o X, lecz o Y”?
+   – Czy w profilu/hero widnieją oklepane formułki generowane maszynowo: „Nie piszę po prostu kodu – dostarczam synergiczną wartość biznesową w skali 360”? (Uwaga: respektuj świadome manifesty i hasła osobiste zadeklarowane przez autora w bloku kontekstu!).
+B) ❌ INFLATED SYMBOLISM & PRZYMIOTNIKI PRZECHWAŁKOWE (§1, §4 humanizer):
+   – Czy projekt lub polecane źródła opisane są nadętym patosem: „ikona architektury”, „kopalnia wiedzy”, „kultowy przewodnik”, „absolutny lider”, „niekwestionowany złoty standard”, „genialne analizy”, „super-wydajny”?
+   – Czy autor przypisuje sobie samonadane etykiety (Ego Badges): „ekspert”, „ninja”, „guru”, „pasjonat zorientowany na sukces”?
+C) ❌ COPULA AVOIDANCE & PSEUDOGŁĘBIA (§3, §8 humanizer):
+   – Czy zamiast prostego „jest/są/posiada” tekst używa ceremonii: „służy jako świadectwo”, „pełni kluczową rolę w ekosystemie”, „reprezentuje zmianę paradygmatu”?
+   – Czy występują sztuczne zdania imiesłowowe na końcach zdań (-ing drag): „...zapewniając maksymalną wydajność i odzwierciedlając bezwzględne zaangażowanie”?
+D) ❌ CZARNA LISTA SŁÓW-WYTRYCHÓW AI (§7 humanizer):
+   – Wyszukaj i wskaż wystąpienia słów demaskujących model: „kompleksowy”, „innowacyjny”, „asystent decyzyjny”, „dla Twojej wygody”, „kluczowy”, „fundamentalny”, „holistyczny”, „synergia”, „ekosystem”, „wachlarz możliwości”, „w mgnieniu oka”, „w dzisiejszym dynamicznym świecie”, „nie ulega wątpliwości”.
+E) ❌ SZTUCZNE ZAKRESY I WYMUSZONE TRIADY (§10, §12 humanizer):
+   – Czy autor stosuje schemat False Ranges: „Od finansów osobistych, przez wskaźniki zdrowotne, aż po domowe obliczenia”?
+   – Czy myśli są na siłę grupowane w trójki (Rule of Three) dla pozornej kompletności?
+F) ❌ EM DASH ABUSE (§13) I BRAK LUDZKIEGO RYTMU (Burstiness & Pulse):
+   – Czy tekst nadużywa myślników (—) w stylu agresywnego copywritingu sprzedażowego?
+   – Czy wszystkie akapity mają identyczną, mechaniczną długość 3 zdań, czy słychać autentyczny głos inżyniera (mieszanka zdań krótkich, konkretnych faktów i technicznych detali)?
 
-Wynik końcowy i formatowanie:
-- Procent "AI-wości" (0% = w pełni autentyczna i unikalna, 100% = czysty AI slop) oraz ogólny werdykt.
-- Szczegółowe omówienie wszystkich wykrytych cech AI-slop w treści i designie (cytaty pustych frazesów, elementy wizualne).
-- 🎯 ZBIORCZY BACKLOG POPRAWEK: Wszystkie wykryte problemy ułożone malejąco wg priorytetu (P1: rażące frazesy i zmyślone metryki, P2: szablonowe komponenty i plamy blur, P3: szlif inżynierskiego tonu) z identyfikatorami [FIX-01], [FIX-02]...
-- Raport sformatowany do zapisu w: `audyt/audyt-[nazwa-projektu]-ai-slop-[RRRR-MM-DD]-[GGMM].md`
+===================================================================
+2. WARSTWA WIZUALNA, LAYOUT I KOMPONENTY (Design Slop):
+===================================================================
+A) SZABLONOWOŚĆ UI (Default Generator Look):
+   – Czy strona wygląda jak niemodyfikowany szablon z v0.dev / standardowy boilerplate bez dopracowania tokenów barwnych i typografii?
+   – Czy występują generyczne plamy kolorowego rozmycia (AI glow blobs / radial blur) rzucone losowo pod tekst?
+B) EMOJI SPAM I LISTY WYPUNKTOWANE:
+   – Czy każdy nagłówek lub punkt zaczyna się od emotikony (🚀, 💡, 🔥, ✨, 📌)?
+   – Czy każda sekcja to identyczna wyliczanka: `* **Cecha:** Opis`?
+C) INTERAKCJA I REALNOŚĆ KOMPONENTÓW:
+   – Czy przyciski, karty i linki to działające elementy, czy „ślepe atrapy” (`href="#"`, `onClick={() => {}}`)?
+   – Czy tap targets na mobile spełniają min. 44x44px?
+
+===================================================================
+WYNIK KOŃCOWY I FORMATOWANIE RAPORTU:
+===================================================================
+1. METRYKA AI-SLOPU:
+   - Wskaźnik „AI-wości” (0% = w pełni autentyczny, rzemieślniczy projekt; 100% = surowy, nieedytowany slop z generatora).
+   - Werdykt w 2-3 zdaniach.
+2. TABELA WYKRYTYCH WZORCÓW PRZED VS PO:
+   | Element / Cytat ze strony | Wykryty wzorzec / Naruszona reguła humanizer | Propozycja Human-First (Rzeczowo & Konkretnie) |
+   |---|---|---|
+   | ... | ... | ... |
+3. 🎯 ZBIORCZY BACKLOG POPRAWEK ANTY-SLOP (z unikalnymi ID):
+   - 🔴 [PRIORYTET P1 – RAŻĄCY SLOP / PSEUDOCOACHING / FAKE METRYKI]
+     * [SLOP-01] [Sekcja/Tekst] Opis problemu i gotowy zamiennik Human-First
+   - 🟡 [PRIORYTET P2 – SZABLONOWE KOMPONENTY, EMOJI SPAM, BUZZWORDS]
+     * [SLOP-02] ...
+   - 🟢 [PRIORYTET P3 – SZLIF STYLISTYCZNY, RYTM ZDAŃ, POLISH]
+     * [SLOP-03] ...
+4. Raport zapisz w pliku: `audyt/audyt-[nazwa-projektu]-ai-slop-[RRRR-MM-DD]-[GGMM].md`
 ```
 
 ---
@@ -626,5 +666,5 @@ Napisz dla mnie precyzyjny, zwarty prompt gotowy do wklejenia w [v0.dev / Bolt.n
 
 ## 🛡️ Prompty zapobiegające AI-Slop podczas GENEROWANIA stron
 Szczegółowy podręcznik oraz gotowe moduły "Anti-AI-Slop Master Directive" (wersja skrócona do promptów oraz pełna wersja dla `.cursorrules` / Claude Projects) znajdziesz w pliku:
-👉 [prompts/anti-ai-slop-generator-prompt.md](anti-ai-slop-generator-prompt.md)
+👉 [docs/anti-ai-slop-generator-prompt.md](file:///Users/lukaszzychal/PhpstormProjects/lukasz.zychal.dev-wp/docs/anti-ai-slop-generator-prompt.md)
 

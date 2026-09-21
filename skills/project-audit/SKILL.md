@@ -97,6 +97,18 @@ Zbadaj stan testów według następujących podpunktów:
   - Czy stosowane jest ustrukturyzowane logowanie (`logging` z poziomami INFO/WARNING/ERROR) zamiast `print()` / `console.log()`?
   - Czy logi zawierają kontekst pozwalający na łatwe zdiagnozowanie incydentu na produkcji bez ujawniania danych wrażliwych (PII, klucze API)?
 
+### 7. Komunikacja Techniczna, Dokumentacja i Czystość Językowa (Anti-AI-Slop & Human-First)
+- **README i Onboarding:**
+  - Czy README od razu odpowiada na pytania: czym jest projekt, jakie problemy rozwiązuje i jak go uruchomić lokalnie (KISS)?
+  - Czy nie zaczyna się od pompatycznego bełkotu botów (*„W dzisiejszym świecie rozproszonych architektur nasz kompleksowy ekosystem...”*)?
+- **Dokumentacja Architektoniczna (ADR) i Uzasadnienia:**
+  - Czy Architecture Decision Records opisują rzeczywiste kompromisy inżynierskie (*trade-offs*, koszty, ograniczenia), czy zawierają pseudomądrości i lanie wody z generatora tekstu?
+- **Specyfikacja API & OpenAPI/Swagger:**
+  - Czy opisy endpointów i parametrów podają konkretne typy, ograniczenia, kody błędów i przykłady payloadu, zamiast tautologicznych zdań generowanych maszynowo (*„Get user endpoint returns the user”*)?
+- **Teksty Użytkowe i Mikrocopy (jeśli projekt posiada UI / CLI):**
+  - Brak korpomowy, pustych sloganów, samonadanych tytułów (*„innowacyjny asystent”*), zbędnych przeprosin i negatywnych paralelizmu (*„to nie tylko narzędzie, to...”*).
+  - Wymóg wysokiej gęstości faktów (*Fact Density*) i poszanowania czasu odbiorcy.
+
 ---
 
 ## 📋 Wymagany Format Raportu Audytu
@@ -116,6 +128,7 @@ Wygenerowany raport musi mieć poniższą strukturę:
 | 🔐 Bezpieczeństwo & Sekrety | X/10 | ... |
 | 🚀 DevOps & CI/CD | X/10 | ... |
 | ⚡ Wydajność & Observability | X/10 | ... |
+| 📝 Dokumentacja & Human-First Copy | X/10 | ... |
 | **OGÓLNA OCENA** | **X/10** | ... |
 
 ---
